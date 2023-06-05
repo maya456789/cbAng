@@ -40,6 +40,11 @@ export class RecipeDetailComponent implements OnInit {
     this.recipeservice.getRecipeDetail(this.page).pipe(first()).subscribe(
       (res)=>{
         console.log("Detail Process :",res);
+        res.record.forEach((ele: any)=>{
+          console.log("Ingri Data:",ele.ingredients[0]);
+
+
+        })
         this.dataSource=new MatTableDataSource(res.record);
       }
     )
